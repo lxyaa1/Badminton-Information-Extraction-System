@@ -1,21 +1,4 @@
 # Badminton-Information-Extraction-System
-项目架构如下：
-Information Extraction System/
-│
-├── data/                        # 数据目录
-│   ├── raw/                     # 原始羽毛球比赛新闻文本（txt文件，爬虫采集）
-│   
-│
-├── results/                     # 结果目录
-│   ├── extracted.json           # 信息抽取后的结构化数据
-│   └── evaluation.json          # 人工评测结果
-│
-├── src/                         # 源代码
-│  
-│   ├── main.py                  # 命令行主入口，统一调度各模块
-│   ├── crawler.py               # 爬虫模块，自动采集羽毛球新闻
-│   ├── extractor_regex.py       # 信息抽取模块（正则/分词/启发式等）
-│ 	├── evaluation.py            # 人工评测模块，支持交互式标注和统计
 一、main.py
 main.py 是命令行主入口，统一调度各模块。主要分为三个子命令：爬虫、信息抽取、人工评价。
 1. 爬虫
@@ -48,6 +31,7 @@ main.py 是命令行主入口，统一调度各模块。主要分为三个子�
 二、crawler.py
 1.爬虫设计思路
 本爬虫主要实现从中羽在线（http://www.badmintoncn.com）赛事频道抓取羽毛球赛事新闻的功能。中羽在线网站有反爬机制，在未登录账号时访问会询问问题，所以我登录了自己的账号并使用cookie来爬取，并且只有标题中含有‘|’符号的新闻稿才有赛事信息
+
 三、extractor_regex.py
 1.信息抽取设计思路
 本系统旨在从羽毛球赛事新闻文本中提取结构化比赛信息，实现从非结构化文本到结构化数据的转换。核心设计分为三个主要阶段：
